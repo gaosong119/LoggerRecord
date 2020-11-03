@@ -9,13 +9,15 @@ public enum LogLevelEnum {
     public static byte logLevelToNum(LogLevelEnum logLevelEnum){
         byte i = 0;
         switch (logLevelEnum){
-            case info:i=0;
+            case debug:i=0;
                 break;
-            case warn:i=1;
+            case info:i=1;
                 break;
-            case error:i=2;
+            case warn:i=2;
                 break;
-            case off:i=3;
+            case error:i=3;
+                break;
+            case off:i=4;
                 break;
         }
         return i;

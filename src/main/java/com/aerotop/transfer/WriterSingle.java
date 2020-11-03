@@ -4,6 +4,7 @@ import com.aerotop.actuator.SendRemote;
 import com.aerotop.enums.FrameTypeEnum;
 import com.aerotop.enums.LogLevelEnum;
 import com.aerotop.initialization.ConfigLoadToSingle;
+import com.aerotop.initialization.KafkaProducerSingle;
 import com.aerotop.message.Message;
 import com.aerotop.pack.PackMessage;
 
@@ -33,7 +34,7 @@ public class WriterSingle {
     //private BufferedOutputStream bufferedOutputStream;
     private FileOutputStream fileOutputStream;
     //文件内容日期格式化对象
-    private SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS");
+    private SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
     //目录名称格式化对象
     private SimpleDateFormat simpleDateFormatDir=new SimpleDateFormat("yyyy-MM-dd");
     //创建线程池
@@ -112,7 +113,7 @@ public class WriterSingle {
         byte messageLevel = LogLevelEnum.logLevelToNum(message.getLoglevel());
         //获取配置文件日志级别
         byte configLevel = LogLevelEnum.logLevelStringToNum(ConfigLoadToSingle.getInstance().getLocationStorageLevel());
-       if(messageLevel>=configLevel){//>=配置级别执行存储
+       if(messageLevel>=configLevel && configLevel!=4){//>=配置级别执行存储
            //判断存储方式(远程或者本地)
            String locationInterfaceSelector = ConfigLoadToSingle.getInstance().getLocationInterfaceSelector();
            if("location".equalsIgnoreCase(locationInterfaceSelector)){//本地存储
@@ -379,5 +380,15 @@ public class WriterSingle {
 
     public void setSourceName(String sourceName) {
         instance.sourceName = sourceName;
+    }
+    /**
+     * @Description:关闭Producer，防止每发送一次就关闭一次
+     * @Author: gaosong
+     * @Date: 2020/7/30 15:30
+     * @param: null
+     * @return: null
+     **/
+    public void closeProducer() {
+        KafkaProducerSingle.getInstance().getKafkaProducer().close();
     }
 }

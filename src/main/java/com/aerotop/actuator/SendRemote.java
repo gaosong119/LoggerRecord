@@ -42,14 +42,5 @@ public class SendRemote {
 
         }
     }
-    /**
-     * @Description:关闭Producer，防止每发送一次就关闭一次
-     * @Author: gaosong
-     * @Date: 2020/7/30 15:30
-     * @param: null
-     * @return: null
-     **/
-    public static void closeProducer() {
-        KafkaProducerSingle.getInstance().getKafkaProducer().close();
-    }
+
 }

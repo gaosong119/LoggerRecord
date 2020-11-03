@@ -40,7 +40,8 @@ public class KafkaProducerSingle {
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.ByteArraySerializer");
         properties.put(ProducerConfig.RETRIES_CONFIG,5);//设置重发次数
-        properties.put(ProducerConfig.BATCH_SIZE_CONFIG,163840);//设置缓存区大小
+        properties.put(ProducerConfig.BATCH_SIZE_CONFIG,81920);//设置缓存区大小
+        properties.put(ProducerConfig.BUFFER_MEMORY_CONFIG,167772160);//设置缓存区大小
         return properties;
     }
      /**
