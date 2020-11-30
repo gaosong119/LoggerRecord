@@ -50,7 +50,6 @@ public class PackMessage {
         //将帧长byte[]类型放入messageBytes
         System.arraycopy(frameLengthBytes,0,messageBytes,2,4);
         //帧类型
-        //messageBytes.add(frameType);
         messageBytes[6] = frameType;
         //软件名称字符串长度
         byte[] sourceBytesLength = ByteConvertUtils.intToByteArray(sourceNameLength);
@@ -58,13 +57,11 @@ public class PackMessage {
         System.arraycopy(sourceBytesLength,0,messageBytes,7,4);
         System.arraycopy(sourceNameBytes,0,messageBytes,11,sourceNameLength);
         //日志级别
-        //messageBytes.add(loglevel);
         messageBytes[11+sourceNameLength] = loglevel;
         //发送时间
         byte[] currentTimeMillisBytes = ByteConvertUtils.longToByteArray(currentTimeMillis);
         System.arraycopy(currentTimeMillisBytes,0,messageBytes,12+sourceNameLength,8);
         //流程
-        //messageBytes.add(process);
         messageBytes[20+sourceNameLength] = process;
         //事件字符串长度
         byte[] eventLengthBytes = ByteConvertUtils.intToByteArray(eventLength);

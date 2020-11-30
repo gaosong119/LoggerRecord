@@ -14,24 +14,33 @@ import java.util.Properties;
 public class KafkaProducerSingle {
     //获取KafkaProducerSingle对象
     private static KafkaProducerSingle instance = new KafkaProducerSingle();
+
     //kafkaProducer类作为此对象的一个属性
-    private KafkaProducer<String,?> kafkaProducer;
-    //私有构造器
+    private KafkaProducer kafkaProducer;
+
+    /**
+     * @Description: 初始化producer对象
+     * @Author: gaosong
+     * @Date: 2020/11/17 19:15
+     * @return: null
+     **/
     private KafkaProducerSingle() {
         //初始化KafkaProducer对象
         kafkaProducer = new KafkaProducer(initConfig());
     }
-
-    //获取单例KafkaProducer对象
+    /**
+     * @Description: 获取 kafka producer 实例
+     * @Author: gaosong
+     * @Date: 2020/11/17 19:16
+     * @return: com.aerotop.initialization.KafkaProducerSingle
+     **/
     public static KafkaProducerSingle getInstance() {
         return instance;
     }
-
     /**
      * @Description:初始化KafkaProducer所需的Properties对象方法
      * @Author: gaosong
      * @Date: 2020/7/27 9:01
-     * @param: null
      * @return: Properties
      **/
     private Properties initConfig() {
@@ -48,10 +57,9 @@ public class KafkaProducerSingle {
       * @Description:通过instance获取KafkaProducer
       * @Author: gaosong
       * @Date: 2020/8/10 10:03
-      * @param: * @param null:
       * @return: KafkaProducer
       **/
-    public KafkaProducer<String, ?> getKafkaProducer() {
+    public KafkaProducer getKafkaProducer() {
         return kafkaProducer;
     }
 }

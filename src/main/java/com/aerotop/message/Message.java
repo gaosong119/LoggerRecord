@@ -26,10 +26,28 @@ public class Message {
     private String eventCount;
     //备用
     private String reserved;
-
+    /**
+     * @Description: 空构造器
+     * @Author: gaosong
+     * @Date: 2020/11/17 19:24
+     * @return: null
+     **/
     public Message() {
     }
-
+    /**
+     * @Description: 全参构造器
+     * @Author: gaosong
+     * @Date: 2020/11/17 19:25
+     * @param frameType: 消息类型
+     * @param sourceName: 消息发送方
+     * @param loglevel: 日志级别
+     * @param sendTime: 发送时间
+     * @param process: 进程
+     * @param event: 事件
+     * @param eventCount: 事件内容
+     * @param reserved: 备注
+     * @return: null
+     **/
     public Message(FrameTypeEnum frameType, String sourceName, LogLevelEnum loglevel, long sendTime, byte process, String event, String eventCount, String reserved) {
         this.frameType = frameType;
         this.sourceName = sourceName;
@@ -40,68 +58,76 @@ public class Message {
         this.eventCount = eventCount;
         this.reserved = reserved;
     }
-
+    /**
+     * @Description: 获取帧类型
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:35
+     * @return: com.aerotop.enums.FrameTypeEnum
+     **/
     public FrameTypeEnum getFrameType() {
         return frameType;
     }
-
-    public void setFrameType(FrameTypeEnum frameType) {
-        this.frameType = frameType;
-    }
-
+    /**
+     * @Description: 获取 消息发送方
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:38
+     * @return: java.lang.String
+     **/
     public String getSourceName() {
         return sourceName;
     }
-
-    public void setSourceName(String sourceName) {
-        this.sourceName = sourceName;
-    }
-
+    /**
+     * @Description:获取日志级别
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:38
+     * @return: com.aerotop.enums.LogLevelEnum
+     **/
     public LogLevelEnum getLoglevel() {
         return loglevel;
     }
-
-    public void setLoglevel(LogLevelEnum loglevel) {
-        this.loglevel = loglevel;
-    }
-
+    /**
+     * @Description: 获取进程
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:39
+     * @return: byte
+     **/
     public byte getProcess() {
         return process;
     }
-
-    public void setProcess(byte process) {
-        this.process = process;
-    }
-
+    /**
+     * @Description: 获取事件
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:39
+     * @return: java.lang.String
+     **/
     public String getEvent() {
         return event;
     }
-
-    public void setEvent(String event) {
-        this.event = event;
-    }
-
+    /**
+     * @Description: 获取事件内容
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:39
+     * @return: java.lang.String
+     **/
     public String getEventCount() {
         return eventCount;
     }
-
-    public void setEventCount(String eventCount) {
-        this.eventCount = eventCount;
-    }
-
+    /**
+     * @Description: 获取备注
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:39
+     * @return: java.lang.String
+     **/
     public String getReserved() {
         return reserved;
     }
-
-    public void setReserved(String reserved) {
-        this.reserved = reserved;
-    }
-
+    /**
+     * @Description:获取发送时间
+     * @Author: gaosong
+     * @Date: 2020/11/18 8:40
+     * @return: long
+     **/
     public long getSendTime() {
         return sendTime;
-    }
-
-    public void setSendTime(long sendTime) {
-        this.sendTime = sendTime;
     }
 }
