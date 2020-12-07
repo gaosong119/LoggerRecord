@@ -1,8 +1,3 @@
-import com.aerotop.enums.FrameTypeEnum;
-import com.aerotop.enums.LogLevelEnum;
-import com.aerotop.message.Message;
-import com.aerotop.transfer.WriterSingle;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executors;

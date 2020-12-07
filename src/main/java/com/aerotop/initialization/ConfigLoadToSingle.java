@@ -190,4 +190,15 @@ public class ConfigLoadToSingle {
     public String getLocationDiskLocationDir() {
         return LocationDiskLocationDir;
     }
+
+    /**
+     * @Description: 更改写入方式
+     * @Author: gaosong
+     * @Date: 2020/12/4 15:32
+     * @param locationDeep: 写入方式内容
+     * @return: void
+     **/
+    public synchronized void setLocationDeep(String locationDeep) {
+        instance.LocationDeep = locationDeep;
+    }
 }
