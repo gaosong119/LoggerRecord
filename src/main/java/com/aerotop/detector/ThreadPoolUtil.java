@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @ClassName: DiskArrayChecker
- * @Description: 磁盘阵列检查器
+ * @Description: 线程池工具类
  * @Author: gaosong
  * @Date 2020/12/1 9:40
  */

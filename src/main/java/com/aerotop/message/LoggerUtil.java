@@ -33,7 +33,7 @@ public class LoggerUtil {
     //文件内容日期格式化对象
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
     /**
-     * @Description: 根据传入内容组织message对象
+     * @Description: 校验message对象添加默认值
      * @Author: gaosong
      * @Date: 2020/11/30 15:05
      * @param message: 写入消息
@@ -268,7 +268,7 @@ public class LoggerUtil {
         return messageContent.getBytes(StandardCharsets.UTF_8);
     }
     /**
-     * @Description:通过流程编码获取流程字符串
+     * @Description: 通过流程编码获取流程字符串
      * @Author: gaosong
      * @Date: 2020/7/17 15:40
      * @param: coder:流程编码

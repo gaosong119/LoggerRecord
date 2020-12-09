@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 /**
  * @ClassName: CompratorByLastModified
- * @Description: 文件最后更改事件排序
+ * @Description: 文件最后更改时间排序
  * @Author: gaosong
  * @Date 2020/10/9 15:52
  */

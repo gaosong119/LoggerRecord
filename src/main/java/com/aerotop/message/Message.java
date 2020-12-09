@@ -50,7 +50,8 @@ public class Message {
      * @param reserved: 备注
      * @return: null
      **/
-    public Message(FrameTypeEnum frameType, String sourceName, LogLevelEnum loglevel, long sendTime, byte process, String event, String eventCount, String reserved) {
+    public Message(FrameTypeEnum frameType, String sourceName, LogLevelEnum loglevel, long sendTime, byte process,
+                   String event, String eventCount, String reserved) {
         this.frameType = frameType;
         this.sourceName = sourceName;
         this.loglevel = loglevel;

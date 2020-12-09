@@ -1,10 +1,6 @@
 package com.aerotop.service;
 
-import com.aerotop.enums.FrameTypeEnum;
-import com.aerotop.enums.LogLevelEnum;
 import com.aerotop.message.Message;
-
-import java.io.IOException;
 
 /**
  * @Description: 日志写入接口
