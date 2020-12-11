@@ -17,7 +17,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
  */
 public class SendRemote {
     /**
-     * @Description:发送函数
+     * @Description: 发送函数
      * @Author: gaosong
      * @Date: 2020/11/17 18:29
      * @param topic: 发送主题

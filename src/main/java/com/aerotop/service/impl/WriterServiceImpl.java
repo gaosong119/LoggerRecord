@@ -111,7 +111,12 @@ public class WriterServiceImpl implements WriterService {
     public static synchronized void setSendMapping(String sourceName, WriterModel writerModel) {
         sendMapping.put(sourceName,writerModel);
     }
-
+    /**
+     * @Description: 获取sendMapping属性
+     * @Author: gaosong
+     * @Date: 2020/12/9 10:07
+     * @return: java.util.HashMap<java.lang.String,com.aerotop.message.WriterModel>
+     **/
     public static HashMap<String, WriterModel> getSendMapping() {
         return sendMapping;
     }

@@ -25,6 +25,53 @@ public class ByteConvertUtils {
         return b;
     }
     /**
+     * @Description: 将short类型转为byte[],小端模式
+     * @Author: gaosong
+     * @Date: 2020/11/25 14:20
+     * @param s: short 类型数据
+     * @return: byte[]
+     **/
+    public static byte[] short2byteLittle(short s){
+        byte[] b = new byte[2];
+        for(int i = 0; i < 2; i++){
+            int offset = 16 - (i+1)*8;
+            b[1-i] = (byte)((s >> offset)&0xff);
+        }
+        return b;
+    }
+
+    /**
+     * @Description: float转byte[],小端模式
+     * @Author: gaosong
+     * @Date: 2020/11/25 19:10
+     * @param f:float类型数据
+     * @return: byte[]
+     **/
+    public static byte[] float2byteLittle(float f) {
+        // 把float转换为byte[]
+        int fBit = Float.floatToIntBits(f);
+
+        byte[] b = new byte[4];
+        for (int i = 0; i < 4; i++) {
+            b[3-i] = (byte) (fBit >> (24 - i * 8));
+        }
+
+        // 翻转数组
+        int len = b.length;
+        // 建立一个与源数组元素类型相同的数组
+        byte[] dest = new byte[len];
+        // 为了防止修改源数组，将源数组拷贝一份副本
+        System.arraycopy(b, 0, dest, 0, len);
+        byte temp;
+        // 将顺位第i个与倒数第i个交换
+        for (int i = 0; i < len / 2; ++i) {
+            temp = dest[i];
+            dest[i] = dest[len - i - 1];
+            dest[len - i - 1] = temp;
+        }
+        return dest;
+    }
+    /**
      * @Description: float转byte[]
      * @Author: gaosong
      * @Date: 2020/11/25 19:10
@@ -123,6 +170,7 @@ public class ByteConvertUtils {
         }
         return "";
     }
+
      /**
       * @Description:int 转 byte[]
       * @Author: gaosong
@@ -137,6 +185,22 @@ public class ByteConvertUtils {
         result[1] = (byte)((i >> 16) & 0xFF);
         result[2] = (byte)((i >> 8) & 0xFF);
         result[3] = (byte)(i & 0xFF);
+        return result;
+    }
+    /**
+     * @Description:int 转 byte[],小端传输
+     * @Author: gaosong
+     * @Date: 2020/7/22 16:58
+     * @param: int 类型整数
+     * @return: byte[]
+     **/
+    public static byte[] intToBytesLittle(int i) {
+        byte[] result = new byte[4];
+        //由高位到低位
+        result[3] = (byte)((i >> 24) & 0xFF);
+        result[2] = (byte)((i >> 16) & 0xFF);
+        result[1] = (byte)((i >> 8) & 0xFF);
+        result[0] = (byte)(i & 0xFF);
         return result;
     }
     /**
