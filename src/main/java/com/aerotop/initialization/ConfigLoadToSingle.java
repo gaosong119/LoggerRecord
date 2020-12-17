@@ -44,6 +44,9 @@ public class ConfigLoadToSingle {
     //本地记录-本地磁盘存储目录配置
     private String LocationDiskLocationDir;
 
+    //版本文件生产路径配置
+    private String versionPath;
+
     //私有构造器,加载配置文件配置项到instance
     private ConfigLoadToSingle() {
     }
@@ -83,6 +86,9 @@ public class ConfigLoadToSingle {
                         break;
                     case "diskLocationDir":
                         instance.LocationDiskLocationDir = props.getProperty(key);
+                        break;
+                    case "versionPath":
+                        instance.versionPath = props.getProperty(key);
                         break;
                 }
             }
@@ -179,6 +185,10 @@ public class ConfigLoadToSingle {
      **/
     public String getLocationDiskArrayDir() {
         return LocationDiskArrayDir;
+    }
+
+    public String getVersionPath() {
+        return versionPath;
     }
 
     /**

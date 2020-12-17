@@ -9,7 +9,7 @@ import com.aerotop.message.SendRemote;
 import com.aerotop.message.WriterModel;
 import com.aerotop.service.WriterService;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
 /**
@@ -19,12 +19,36 @@ import java.util.HashMap;
  * @Date 2020/11/30 13:43
  */
 public class WriterServiceImpl implements WriterService {
+    //版本文件写入内容
+    public static final String versionCount = "v2.12-20201212-1600";
 
     //软件发送方与WriterModel对应的集合,防止重复创建对象
     private static HashMap<String, WriterModel> sendMapping = new HashMap<>();
 
     //文件写入模板
     private WriterModel writerModel;
+
+    public WriterServiceImpl() {
+        //执行版本文件创建函数
+        try {
+            String versionPath = ConfigLoadToSingle.getInstance().getVersionPath();
+            File directory = new File(versionPath);
+            File file;
+            if(!directory.exists()){
+                directory.mkdirs();
+            }
+            file = new File(versionPath + "/version-RZK.ini");
+            //if(!file.exists()){
+            //每次都创建并覆盖
+            file.createNewFile();
+            //}
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(versionCount);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void logger(Message message) {
@@ -120,4 +144,5 @@ public class WriterServiceImpl implements WriterService {
     public static HashMap<String, WriterModel> getSendMapping() {
         return sendMapping;
     }
+
 }
